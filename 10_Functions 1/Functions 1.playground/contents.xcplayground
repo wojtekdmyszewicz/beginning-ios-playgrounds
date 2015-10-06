@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' requires-full-environment='true' display-mode='rendered'>
+    <pages>
+        <page name='Function Syntax'/>
+        <page name='You&apos;ve Been Using Functions'/>
+        <page name='Functions without Params'/>
+        <page name='Functions with Params'/>
+        <page name='Functions with Multiple Params'/>
+        <page name='Naming Params'/>
+        <page name='Function Scope'/>
+        <page name='Returning Values'/>
+        <page name='Default Params'/>
+        <page name='Chaining Functions Together'/>
+    </pages>
+</playground>
