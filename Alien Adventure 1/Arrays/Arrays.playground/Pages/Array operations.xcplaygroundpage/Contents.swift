@@ -6,7 +6,6 @@ musicians.append("Rae Sremmurd")
 musicians.insert("Dej Loaf", atIndex: 2)
 musicians.removeAtIndex(3)
 musicians.count
-
 let musician = musicians[2]
 
 //: [Next](@next)
