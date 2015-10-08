@@ -1,5 +1,5 @@
-//: ## Functions 1 Exercises
-//: In these exercise, you will create variables and constants, and you will handle simple compiler areas that arise when working with them.
+//: ## Variables Exercises
+//: In these exercises, you will create variables and constants, and you will handle simple compiler areas that arise when working with them.
 /*:
 ### Exercise 1
 

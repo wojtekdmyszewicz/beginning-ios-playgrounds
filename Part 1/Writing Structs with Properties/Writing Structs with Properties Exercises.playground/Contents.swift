@@ -1,5 +1,5 @@
 //: ## Writing Structs with Properties Exercises
-//: In these exercise, you work with structs and their properties.
+//: In these exercises, you work with structs and their properties.
 /*:
 ### Exercise 1
 
