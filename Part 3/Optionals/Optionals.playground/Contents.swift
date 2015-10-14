@@ -72,6 +72,8 @@ imageView.image
 //: ### Optional Chaining
 // Example 1
 var anotherImageView = UIImageView()
+
+
 anotherImageView.image = UIImage(named:"puppy_in_box")
 
 var size = anotherImageView.image?.size
@@ -82,9 +84,7 @@ if let imageSize = anotherImageView.image?.size {
 } else {
     print("This image hasn't been set.")
 }
-
 imageView.image
-
 
 // Example 2
 
