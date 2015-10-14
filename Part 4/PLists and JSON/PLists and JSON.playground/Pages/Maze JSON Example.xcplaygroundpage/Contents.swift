@@ -10,7 +10,7 @@ let rawMazeJSON = NSData(contentsOfURL: mazeJSONURL)!
 
 var mazeDictionaryFromJSON: NSDictionary!
 do {
-    mazeDictionaryFromJSON = try! NSJSONSerialization.JSONObjectWithData(rawMazeJSON, options: .AllowFragments) as! NSDictionary
+    mazeDictionaryFromJSON = try! NSJSONSerialization.JSONObjectWithData(rawMazeJSON, options: NSJSONReadingOptions()) as! NSDictionary
 }
 
 if let mazeDictionaryFromJSON = mazeDictionaryFromJSON {
