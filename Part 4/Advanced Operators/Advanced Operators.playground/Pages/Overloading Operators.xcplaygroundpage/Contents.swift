@@ -11,7 +11,7 @@ struct TeamRecord {
 let record_2013 = TeamRecord(wins: 4, loses: 2)
 let record_2014 = TeamRecord(wins: 6, loses: 3)
 
-//: Overloading addition operator for BaseballHittingStats
+//: Overloading addition operator for TeamRecord
 func + (left: TeamRecord, right: TeamRecord) -> TeamRecord {
     return TeamRecord(wins: left.wins + right.wins, loses: left.loses + right.loses)
 }
