@@ -35,8 +35,9 @@ case .Hockey:
     print("Go Sharks!")
 case .Soccer:
     print("Go Earthquakes")
-default:
-    print("Go Team!")
+// In cases such as these, we no longer have to provide a default case because the compiler can detect that it would never be executed.
+//default:
+//    print("Go Team!")
 }
 
 //: ### Exercise 2
