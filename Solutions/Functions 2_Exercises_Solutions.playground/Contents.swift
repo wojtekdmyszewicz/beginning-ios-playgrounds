@@ -34,19 +34,29 @@ overloadingFun("")
 //: Write a function `medianAndAverage` that takes three `Int` parameters and returns a tuple with the type `(Int, Double)` where the first value is the median of the input values and the second value is the average of the input values.
 func medianAndAverage(num1 num1: Int, num2: Int, num3: Int) -> (Int, Double) {
     var median: Int
-    if num1 < num2 {
+
+    if num1 < num2 {            // partial order = num1, num2
         if num2 < num3 {
-            median = num2
+            median = num2       // known order = num1, num2, num3
         } else {
-            median = num3
+            if num1 < num3 {
+                median = num3   // known order = num1, num3, num2
+            } else {
+                median = num1   // known order = num3, num1, num2
+            }
         }
-    } else {
-        if num1 < num3 {
-            median = num1
+    } else {                    // partial order = num2, num1
+        if num3 < num2 {
+            median = num2       // known order = num3, num2, num1
         } else {
-            median = num3
+            if num3 > num1 {
+                median = num1   // known order = num2, num1, num3
+            } else {
+                median = num3   // known order = num2, num3, num1
+            }
         }
     }
+    
     return (median, Double(num1 + num2 + num3)/3.0)
 }
 
@@ -57,6 +67,8 @@ medianAndAverage(num1: 2, num2: 1, num3: 6) // (2, 3)
 medianAndAverage(num1: 3, num2: 15, num3: 9) // (9, 9)
 medianAndAverage(num1: -10, num2: 11, num3: 0) // (0, 0.333)
 medianAndAverage(num1: 1, num2: 2, num3: 5) // (2, 3.333)
+medianAndAverage(num1: 2, num2: 3, num3: 1) // (2, 2)
+medianAndAverage(num1: 2, num2: 2, num3: 1) // (2, 1.666)
 
 */
 
@@ -65,6 +77,8 @@ medianAndAverage(num1: 2, num2: 1, num3: 6)
 medianAndAverage(num1: 3, num2: 15, num3: 9)
 medianAndAverage(num1: -10, num2: 11, num3: 0)
 medianAndAverage(num1: 1, num2: 2, num3: 7)
+medianAndAverage(num1: 2, num2: 3, num3: 1)
+medianAndAverage(num1: 2, num2: 2, num3: 1)
 
 /*:
 ### Exercise 3

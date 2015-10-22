@@ -23,21 +23,30 @@ emojiLove(s1: "ying", s2: "yang")
 //: ### Exercise 2
 //: The function `median` should take three `Int` parameters and return the `Int` value in the middle.
 func median(num1 num1: Int, num2: Int, num3: Int) -> Int {
-    if num1 < num2 {
-        if num2 < num3 {
-            return num2
-        } else {
-            return num3
-        }
-    } else {
-        if num1 < num3 {
-            return num1
-        } else {
-            return num3
-        }
-    }
     
+    if num1 < num2 {            // partial order = num1, num2
+        if num2 < num3 {
+            return num2         // known order = num1, num2, num3
+        } else {
+            if num1 < num3 {
+                return num3     // known order = num1, num3, num2
+            } else {
+                return num1     // known order = num3, num1, num2
+            }
+        }
+    } else {                    // partial order = num2, num1
+        if num3 < num2 {
+            return num2         // known order = num3, num2, num1
+        } else {
+            if num3 > num1 {
+                return num1     // known order = num2, num1, num3
+            } else {
+                return num3     // known order = num2, num3, num1
+            }
+        }
+    }    
 }
+
 
 /* Example Function Call
 
@@ -46,6 +55,8 @@ median(num1: 2, num2: 1, num3: 4) // 2
 median(num1: 3, num2: 6, num3: 6) // 6
 median(num1: -10, num2: 10, num3: 0) // 0
 median(num1: 0, num2: 0, num3: 0) // 0
+median(num1: 2, num2: 3, num3: 1) // 2
+median(num1: 2, num2: 2, num3: 1) // 2
 
 */
 
@@ -54,6 +65,8 @@ median(num1: 2, num2: 1, num3: 4)
 median(num1: 3, num2: 6, num3: 6)
 median(num1: -10, num2: 10, num3: 0)
 median(num1: 0, num2: 0, num3: 0)
+median(num1: 2, num2: 3, num3: 1)
+median(num1: 2, num2: 2, num3: 1)
 
 /*:
 ### Exercise 3
