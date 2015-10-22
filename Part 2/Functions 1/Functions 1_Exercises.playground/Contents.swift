@@ -28,6 +28,8 @@ median(num1: 2, num2: 1, num3: 4) // 2
 median(num1: 3, num2: 6, num3: 6) // 6
 median(num1: -10, num2: 10, num3: 0) // 0
 median(num1: 0, num2: 0, num3: 0) // 0
+median(num1: 2, num2: 3, num3: 1) // 2
+median(num1: 2, num2: 2, num3: 1) // 2
 
 */
 

@@ -38,6 +38,8 @@ medianAndAverage(num1: 2, num2: 1, num3: 6) // (2, 3)
 medianAndAverage(num1: 3, num2: 15, num3: 9) // (9, 9)
 medianAndAverage(num1: -10, num2: 11, num3: 0) // (0, 0.333)
 medianAndAverage(num1: 1, num2: 2, num3: 5) // (2, 3.333)
+medianAndAverage(num1: 2, num2: 3, num3: 1) // (2, 2)
+medianAndAverage(num1: 2, num2: 2, num3: 1) // (2, 1.666)
 
 */
 
