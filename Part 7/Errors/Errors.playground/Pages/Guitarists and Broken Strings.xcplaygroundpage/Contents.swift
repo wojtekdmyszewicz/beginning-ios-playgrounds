@@ -1,53 +1,33 @@
+//: [Previous](@previous)
+/*:
+## Guitarists and Broken Strings
+*/
 import Foundation
 
-
-enum MyError:ErrorType {
-    case ItDidNotWork
-}
-func methodThatThrows() throws {
-    print("After this line, we will throw an error")
-    throw MyError.ItDidNotWork
-}
-
-func methodThatThrowsWithResult() throws -> String {
-//    throw MyError.ItDidNotWork
-    return "Will never get here"
-}
-
-let optionalValue = try? methodThatThrowsWithResult()
-optionalValue == nil
-
-func theErrorStopsHere() {
-    do {
-        try methodThatThrows()
-    } catch {
-        print("We caught an error")
-    }
-}
-
-
+//: ### Note struct
 struct Note {
-    let velocity:Float
+    let velocity: Float
 }
 
+//: ### Instrument protocol (playNote can now throw errors)
 protocol Instrument {
-    func playNote(note:Note) throws
+    func playNote(note: Note) throws
 }
 
-// Not to be confused with the built-in type String :)
+//: ### The GuitarString struct (not to be confused with the built-in type String)
 struct GuitarString {
     
-    var broken:Bool = false
-    var outOfTune:Bool = false
+    var broken: Bool = false
+    var outOfTune: Bool = false
     
     enum Error: ErrorType {
         case Broken
         case OutOfTune
     }
     
-    mutating func pluck(velocity:Float) throws -> String {
+    mutating func pluck(velocity: Float) throws -> String {
         if broken {
-            // can't play a broken string 
+            // can't play a broken string
             throw GuitarString.Error.Broken
         }
         
@@ -74,14 +54,16 @@ struct GuitarString {
     }
 }
 
+//: ### Fret struct
 struct Fret {}
 
+//: ### Guitar class
 class Guitar {
-    let frets:[Fret]
-    let strings:[GuitarString]
+    let frets: [Fret]
+    let strings: [GuitarString]
     
     // A guitar typically has 20-24 frets and 6 strings.
-    init(frets:[Fret], strings:[GuitarString]) {
+    init(frets: [Fret], strings: [GuitarString]) {
         self.frets = frets
         self.strings = strings
     }
@@ -91,7 +73,7 @@ class Guitar {
         return strings[0]
     }
     
-    func fretNote(note: Note, onString:GuitarString) {
+    func fretNote(note: Note, onString: GuitarString) {
         // Press down the correct fret (typically left hand).
     }
     
@@ -101,7 +83,7 @@ class Guitar {
         try pluckString(&string, velocity: note.velocity)
     }
     
-    func pluckString(inout string: GuitarString, velocity:Float) throws {
+    func pluckString(inout string: GuitarString, velocity: Float) throws {
         // Pluck the note (typically the right hand).
         try string.pluck(velocity)
     }
@@ -110,7 +92,7 @@ class Guitar {
 class Guitarist {
     let guitar:Guitar = Guitar(frets: [Fret()], strings: [GuitarString()])
     
-    func perform(notes:[Note]) {
+    func perform(notes: [Note]) {
         for note in notes {
             do {
                 try guitar.playNote(note)
@@ -124,3 +106,5 @@ class Guitarist {
         }
     }
 }
+
+//: [Next](@next)
