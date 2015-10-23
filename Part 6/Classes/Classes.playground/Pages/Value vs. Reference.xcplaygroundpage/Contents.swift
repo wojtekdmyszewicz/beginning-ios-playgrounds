@@ -1,6 +1,8 @@
 //: [Previous](@previous)
-
-//: ### Note Struct
+/*:
+## Value vs. Reference
+*/
+//: ### Note struct
 struct Note {
     // ... needs volume, tone, duration, etc.
 }

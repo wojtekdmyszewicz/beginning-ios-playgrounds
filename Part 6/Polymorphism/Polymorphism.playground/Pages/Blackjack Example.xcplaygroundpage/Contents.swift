@@ -1,89 +1,14 @@
-struct Note {
-    // ... needs volume, tone, duration, etc.
-}
-
-protocol Instrument {
-    func playNote(note:Note)
-}
-
-// Not to be confused with the built-in type String :)
-struct GuitarString {}
-struct Fret {}
-
-class Guitar: Instrument {
-    let frets:[Fret]
-    let strings:[GuitarString]
-    
-    // A guitar typically has 20-24 frets and 6 strings.
-    init(frets:[Fret], strings:[GuitarString]) {
-        self.frets = frets
-        self.strings = strings
-    }
-    
-    func stringForNote(note: Note) -> GuitarString {
-        // TODO: logic to choose the correct string to play
-        return strings[0]
-    }
-    
-    func fretNote(note: Note, onString:GuitarString) {
-        // Press down the correct fret (typically left hand).
-    }
-    
-    func pluckString(string: GuitarString) {
-        // Pluck the note (typically the right hand).
-        print("twang 🎶")
-    }
-    
-    func playNote(note: Note) {
-        let string = stringForNote(note)
-        fretNote(note, onString: string)
-        pluckString(string)
-    }
-}
-
-class ElectricGuitar:Guitar {
-    // The electric guitar has adjustable knobs for tone and volume.
-    var volumeLevel:Float = 1.0
-    var toneLevel:Float = 1.0
-    
-    // Notice the override keyword.
-    override func pluckString(string: GuitarString) {
-        if volumeLevel > 0.7 {
-            print("🎸🎸🎸 DRAOWWW")
-        } else if volumeLevel > 0 {
-            print("🎸 twang")
-        } else { // volumeLevel is 0
-            super.pluckString(string)
-        }
-        // TODO: incorporate tone.
-    }
-}
-
-let guitar = Guitar(frets: [Fret()], strings: [GuitarString()])
-guitar.playNote(Note())
-
-let electric = ElectricGuitar(frets: [Fret()], strings: [GuitarString()])
-electric.playNote(Note())
-
-
-
-var anyGuitar:Guitar = Guitar(frets: [Fret()], strings: [GuitarString()])
-anyGuitar.playNote(Note())
-
-anyGuitar = electric
-anyGuitar.playNote(Note())
-
-
-
-///////////////// BLACKJACK
-
+//: [Previous](@previous)
+/*:
+## Blackjack Example
+*/
+//: ### PlayingCard protocol
 protocol PlayingCard {
     var isFaceDown:Bool { get set }
     var shortName:String { get }
-    
-    //    func flipOver()
 }
 
+//: ### SuitedCard is-a PlayingCard
 struct SuitedCard: PlayingCard {
     enum Suit {
         case Hearts
@@ -108,11 +33,11 @@ struct SuitedCard: PlayingCard {
         case Ace
     }
     
-    let suit:Suit
-    let value:Value
-    var isFaceDown:Bool
+    let suit: Suit
+    let value: Value
+    var isFaceDown: Bool
     
-    var suitDisplay:String {
+    var suitDisplay: String {
         switch self.suit {
         case .Hearts:
             return "♥"
@@ -125,7 +50,7 @@ struct SuitedCard: PlayingCard {
         }
     }
     
-    var valueDisplay:String {
+    var valueDisplay: String {
         switch self.value {
         case .Two:
             return "2"
@@ -156,7 +81,7 @@ struct SuitedCard: PlayingCard {
         }
     }
     
-    var shortName:String {
+    var shortName: String {
         if isFaceDown {
             return "???"
         }
@@ -170,12 +95,12 @@ struct SuitedCard: PlayingCard {
     }
 }
 
+let suits: [SuitedCard.Suit] = [.Hearts, .Diamonds, .Clubs, .Spades]
+let values: [SuitedCard.Value] = [.Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine, .Ten, .Jack, .Queen, .King, .Ace]
 
-let suits:[SuitedCard.Suit] = [.Hearts, .Diamonds, .Clubs, .Spades]
-let values:[SuitedCard.Value] = [.Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine, .Ten, .Jack, .Queen, .King, .Ace]
-
+//: ### Deck struct
 struct Deck {
-    var cards:[SuitedCard] = []
+    var cards: [SuitedCard] = []
     
     init() {
         for suit in suits {
@@ -191,8 +116,9 @@ struct Deck {
     }
 }
 
+//: ### BlackjackPlayer class
 class BlackjackPlayer {
-    var hand:[SuitedCard] = []
+    var hand: [SuitedCard] = []
     
     func playTurn(dealer: Dealer) {
         while(!hasBusted()) {
@@ -200,11 +126,11 @@ class BlackjackPlayer {
         }
     }
     
-    func hit(dealer:Dealer) {
+    func hit(dealer: Dealer) {
         dealer.hit(self)
     }
     
-    func stand(dealer:Dealer) {
+    func stand(dealer: Dealer) {
         dealer.stand(self)
     }
     
@@ -238,13 +164,14 @@ class BlackjackPlayer {
     }
 }
 
-class Dealer:BlackjackPlayer {
+//: ### The Dealer class is-a BlackjackPlayer and it inherits all its properties/methods.
+class Dealer: BlackjackPlayer {
     var deck = Deck()
-    let opponents:[BlackjackPlayer]
+    let opponents: [BlackjackPlayer]
     
-    var activeOpponentIndex:Int = 0
+    var activeOpponentIndex: Int = 0
     
-    init(opponents:[BlackjackPlayer]) {
+    init(opponents: [BlackjackPlayer]) {
         self.opponents = opponents
     }
     
@@ -260,7 +187,7 @@ class Dealer:BlackjackPlayer {
         opponents[activeOpponentIndex].playTurn(self)
     }
     
-    func dealTo(player:BlackjackPlayer) {
+    func dealTo(player: BlackjackPlayer) {
         if let card = deck.cards.popLast(),
             var faceUp = deck.cards.popLast()
         {
@@ -273,7 +200,7 @@ class Dealer:BlackjackPlayer {
         // the blackjack dealer always has to hit if hand is < 17 points, else stand
     }
     
-    override func hit(player:BlackjackPlayer) {
+    override func hit(player: BlackjackPlayer) {
         if var card = deck.cards.popLast() {
             card.isFaceDown = false
             player.hand.append(card)
@@ -306,3 +233,14 @@ class Dealer:BlackjackPlayer {
         deck.shuffle()
     }
 }
+
+/*
+
+// Uncomment when ready.
+
+let opponents = [BlackjackPlayer(), BlackjackPlayer(), BlackjackPlayer(), BlackjackPlayer()]
+let dealer = Dealer(opponents: opponents)
+
+dealer.startGame()
+
+*/
