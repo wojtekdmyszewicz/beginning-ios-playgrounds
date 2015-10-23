@@ -1,4 +1,7 @@
-
+//: [Previous](@previous)
+/*:
+## Design Pattern: Delegate
+*/
 import UIKit
 
 class DataSourceExample: NSObject, UITableViewDataSource {
@@ -18,19 +21,10 @@ class DataSourceExample: NSObject, UITableViewDataSource {
 
 let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
 let dataSource = DataSourceExample()
+
+// Let's delegate the tableView's dataSource responsibilites to the dataSource object.
 tableView.dataSource = dataSource
+
 tableView.reloadData()
 tableView
-
-
-class MyTarget:NSObject {
-    func performAction() {
-        print("bullseye!")
-    }
-}
-
-let target = MyTarget()
-let button = UIButton()
-button.addTarget(target, action: "performAction", forControlEvents: .TouchUpInside)
-
-button.sendActionsForControlEvents(.TouchUpInside)
+//: [Next](@next)
