@@ -1,4 +1,7 @@
+//: ## SuitedCard Struct
 struct SuitedCard {
+    
+    // a card can be ♥️, ♣️, ♦️, ♠️
     enum Suit {
         case Hearts
         case Spades
@@ -6,6 +9,7 @@ struct SuitedCard {
         case Clubs
     }
     
+    // the possible values of a card
     enum Value {
         case Two
         case Three
@@ -22,7 +26,9 @@ struct SuitedCard {
         case Ace
     }
     
-    let suit:Suit
-    let value:Value
-    var isFaceDown:Bool
+    // properties
+    let suit: Suit
+    let value: Value
+    var isFaceDown: Bool
 }
+//: [Next](@next)
