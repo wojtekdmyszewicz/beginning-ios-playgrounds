@@ -1,10 +1,14 @@
+//: [Previous](@previous)
+/*:
+## Blackjack Player
+*/
+//: ### PlayingCard protocol
 protocol PlayingCard {
     var isFaceDown:Bool { get set }
-    var shortName:String { get }
-    
-    //    func flipOver()
+    var shortName:String { get }    
 }
 
+//: ### SuitedCard is-a PlayingCard
 struct SuitedCard: PlayingCard {
     enum Suit {
         case Hearts
@@ -29,11 +33,11 @@ struct SuitedCard: PlayingCard {
         case Ace
     }
     
-    let suit:Suit
-    let value:Value
-    var isFaceDown:Bool
+    let suit: Suit
+    let value: Value
+    var isFaceDown: Bool
     
-    var suitDisplay:String {
+    var suitDisplay: String {
         switch self.suit {
         case .Hearts:
             return "♥"
@@ -46,7 +50,7 @@ struct SuitedCard: PlayingCard {
         }
     }
     
-    var valueDisplay:String {
+    var valueDisplay: String {
         switch self.value {
         case .Two:
             return "2"
@@ -77,7 +81,7 @@ struct SuitedCard: PlayingCard {
         }
     }
     
-    var shortName:String {
+    var shortName: String {
         if isFaceDown {
             return "???"
         }
@@ -91,11 +95,12 @@ struct SuitedCard: PlayingCard {
     }
 }
 
-let suits:[SuitedCard.Suit] = [.Hearts, .Diamonds, .Clubs, .Spades]
-let values:[SuitedCard.Value] = [.Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine, .Ten, .Jack, .Queen, .King, .Ace]
+let suits: [SuitedCard.Suit] = [.Hearts, .Diamonds, .Clubs, .Spades]
+let values: [SuitedCard.Value] = [.Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine, .Ten, .Jack, .Queen, .King, .Ace]
 
+//: ### Deck struct
 struct Deck {
-    var cards:[SuitedCard] = []
+    var cards: [SuitedCard] = []
     
     init() {
         for suit in suits {
@@ -111,8 +116,9 @@ struct Deck {
     }
 }
 
+//: ### BlackjackPlayer class
 class BlackjackPlayer {
-    var hand:[SuitedCard] = []
+    var hand: [SuitedCard] = []
     
     func playTurn(dealer: Dealer) {
         while(!hasBusted()) {
@@ -120,11 +126,11 @@ class BlackjackPlayer {
         }
     }
     
-    func hit(dealer:Dealer) {
+    func hit(dealer: Dealer) {
         dealer.hit(self)
     }
     
-    func stand(dealer:Dealer) {
+    func stand(dealer: Dealer) {
         dealer.stand(self)
     }
     
@@ -158,7 +164,8 @@ class BlackjackPlayer {
     }
 }
 
-class Dealer:BlackjackPlayer {
+//: ### The Dealer class is-a BlackjackPlayer and it inherits all its properties/methods.
+class Dealer: BlackjackPlayer {
     var deck = Deck()
     // TODO: init with all players
     
@@ -187,6 +194,10 @@ class Dealer:BlackjackPlayer {
     }
 }
 
+/*
+
+// Uncomment when ready.
+
 let dealer = Dealer()
 let p = BlackjackPlayer()
 
@@ -202,3 +213,5 @@ dealer.dealTo(player2)
 player1.playTurn(dealer)
 player2.playTurn(dealer)
 dealer.playTurn(dealer)
+
+*/
