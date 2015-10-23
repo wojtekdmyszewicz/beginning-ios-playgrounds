@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' requires-full-environment='true'>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
-        <page name='1'/>
-        <page name='2'/>
-        <page name='3'/>
+        <page name='Computed Property, Method, and Custom Initializer'/>
+        <page name='Beaker Example Property and Method'/>
+        <page name='Beaker Example Access Modifiers and Exercises'/>
     </pages>
 </playground>

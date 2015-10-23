@@ -1,3 +1,7 @@
+/*:
+## Computer Property, Method, and Custom Initializer
+*/
+//: ### SuitedCard Struct
 struct SuitedCard {
     
     enum Suit {
@@ -23,24 +27,26 @@ struct SuitedCard {
         case Ace
     }
     
-    let suit:Suit
-    let value:Value
+    let suit: Suit
+    let value: Value
     let isFaceDown:Bool
     
-    
-    init(suit:Suit, value:Value) {
+    // custom initializer taking a two parameters: a Suit and a Value
+    init(suit: Suit, value: Value) {
         self.suit = suit
         self.value = value
         self.isFaceDown = false
     }
     
-    init(suit:Suit, value:Value, isFaceDown:Bool) {
+    // custom initializer taking a three parameters: a Suit, a Value, and a Bool
+    init(suit: Suit, value: Value, isFaceDown: Bool) {
         self.suit = suit
         self.value = value
         self.isFaceDown = isFaceDown
     }
     
-    var suitDisplay:String {
+    // the suitDisplay is a value that can be derived from information already in the struct (the suit)
+    var suitDisplay: String {
         switch self.suit {
         case .Hearts:
             return "♥"
@@ -53,7 +59,8 @@ struct SuitedCard {
         }
     }
     
-    func isBlackjack(otherCard:SuitedCard) -> Bool {
+    // isBlackjack is a method belonging to SuitedCard that allows us to check if a SuitedCard plus another card (otherCard) produces the conditions necessary for "Blackjack"
+    func isBlackjack(otherCard: SuitedCard) -> Bool {
         switch value {
         case .King, .Queen, .Jack, .Ten:
             return otherCard.value == .Ace
@@ -71,16 +78,21 @@ struct SuitedCard {
         return false
     }
 }
+
+//: Example use of `SuitedCard`'s computer property `suitDisplay`.
 let s = SuitedCard(suit: .Hearts, value: .Ace)
 s.suitDisplay
 
+//: Example use of `SuitedCard`'s `isBlackjack` method.
 let t = SuitedCard(suit: .Spades, value: .Ten)
 let u = SuitedCard(suit: .Spades, value: .Ten, isFaceDown:true)
-
 s.isBlackjack(t)
 
-
+//: Example use of `SuitedCard`'s custom initializers.
 let ten = SuitedCard(suit: .Spades, value: .Ten)
 ten.isFaceDown
-let upsideDown = SuitedCard(suit: .Spades, value: .Ten, isFaceDown:true)
+
+let upsideDown = SuitedCard(suit: .Spades, value: .Ten, isFaceDown: true)
 upsideDown.isFaceDown
+
+//: [Next](@next)
