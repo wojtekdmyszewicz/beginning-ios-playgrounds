@@ -22,11 +22,4 @@ var reverseChronologicalYears = birthYears.sort({ (year1: Int, year2: Int) -> Bo
 })
 
 print(reverseChronologicalYears, terminator: "")
-
-let reverseChronologicalStrings = reverseChronologicalYears.map({ (year: Int) -> String in
-    return String(year)
-})
-
-print(reverseChronologicalStrings)
-
 //: [Next](@next)

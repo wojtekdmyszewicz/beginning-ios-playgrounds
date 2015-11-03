@@ -23,7 +23,6 @@ var morePassingGrades = moreGrades.filter({grade in
     grade > 70
 })
 morePassingGrades
-
 //: Shorthand argument names: $0, $1, $2 ...
 // Example 1
 var myGrades = [81, 99, 54, 84, 98]
@@ -37,9 +36,3 @@ var soups = ["tomato", "hot and sour", "french onion", "vegetable"]
 var alphabeticalSoup = soups.sort({ (soup1, soup2) in
     return soup2 > soup1
 })
-
-//var alphabeticalSoup = soups.sort({
-//    $1 > $0
-//})
-//sortedSoups
-//: [Next](@next)
