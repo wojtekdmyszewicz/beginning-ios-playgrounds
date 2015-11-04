@@ -1,13 +1,13 @@
 //: [Previous](@previous)
-
+import Foundation
 //: ## Closure expression syntax: sort()
 
-var bids = [48.1, 75.4, 63.7, 52.4, 68.2]
-var orderedBids = bids.sort( {(bid1: Double, bid2:Double) -> Bool in
+var bids = [48, 75, 63, 52, 6]
+var orderedBids = bids.sort( {(bid1: Int, bid2: Int) -> Bool in
     return  bid2 > bid1
 })
 
-print(orderedBids)
+print(orderedBids, terminator: "")
 //: Closures typically take the form:
 //:
 //: { (parameters) -> return type **in**
@@ -16,11 +16,10 @@ print(orderedBids)
 //:
 //:}
 
-var birthYears = [2004, 2011, 2007, 2005, 2002]
-var youngestToOldest = birthYears.sort({ (year1: Int, year2: Int) -> Bool in
+var birthYears: [Int] = [2004, 2011, 2007, 2005, 2002]
+var reverseChronologicalYears = birthYears.sort({ (year1: Int, year2: Int) -> Bool in
     return year1 > year2
 })
 
-youngestToOldest
-
+print(reverseChronologicalYears, terminator: "")
 //: [Next](@next)
