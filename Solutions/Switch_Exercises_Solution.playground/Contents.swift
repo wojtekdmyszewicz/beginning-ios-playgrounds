@@ -84,3 +84,12 @@ if birthYear == 1992 || birthYear == 1980 || birthYear == 1968 {
     print("You were born in the year of some other animal.")
 }
 
+// Solution
+switch birthYear {
+case 1992, 1980, 1968:
+    print("You were born in the year of the monkey.")
+case 1991, 1979, 1967:
+    print("You were born in the year of the goat")
+default:
+    print("You were born in the year of some other animal.")
+}
