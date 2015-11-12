@@ -28,7 +28,7 @@ func checkGameForRelease(game: Game) {
         release(game)
     }
     
-    if game.bugs > 10 {
+    if game.bugs >= 10 {
         print("Uh oh, need to fix those bugs.")
     }
     
@@ -36,7 +36,7 @@ func checkGameForRelease(game: Game) {
         print("Gotta have tunes!")
     }
     
-    if game.levels < 5 {
+    if game.levels <= 5 {
         print ("Need more levels!")
     }
 }
