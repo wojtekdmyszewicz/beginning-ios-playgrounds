@@ -26,6 +26,13 @@ var waitingList = ["Lyla", "Daniel", "Isabel", "Eric"]
 //: ### Exercise 7
 //: Using subscript syntax, print out the 2nd and 3rd names from the admitted array.
 
-
+//: ### Exercise 8
+//: We'd like to reverse the string, stringToReverse. We can do this by filling in one line of code in the for-in loop below. Try it out!
+let stringToReverse = "desserts"
+var reversedString = ""
+for character in stringToReverse.characters {
+    //reversedString = //TODO: Fill in code here
+}
+print(reversedString, terminator: "")
 
 //: [Next](@next)

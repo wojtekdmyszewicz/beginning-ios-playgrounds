@@ -48,4 +48,20 @@ admitted.append(anotherName)
 // Solution
 print("second: \(admitted[1]), third: \(admitted[2])")
 
+//: ### Exercise 8
+//: We'd like to reverse the string, stringToReverse. We can do this by filling in one line of code in the for-in loop below. Try it out!
+let stringToReverse = "desserts"
+var reversedString = ""
+for character in stringToReverse.characters {
+    //reversedString = //TODO: Fill in code here
+}
+print(reversedString, terminator: "")
+
+// Solution
+for character in stringToReverse.characters {
+    reversedString = "\(character)" + reversedString
+}
+print(reversedString, terminator: "")
+
+
 //: [Next](@next)
