@@ -11,7 +11,7 @@ public struct Tail {
     }
 }
 
-public class Animal {
+public struct Animal {
     public var name:String
     public var species: String = "homo sapiens"
     public var tail: Tail?
@@ -28,7 +28,7 @@ public class Animal {
     }
 }
 
-public class Car {
+public struct Car {
     public var make:String
     public var model: String
     
@@ -38,7 +38,7 @@ public class Car {
     }
 }
 
-public class Room {
+public struct Room {
     public var name:String
     public var occupied: Bool
     
