@@ -29,9 +29,6 @@ func screen(person: Clubgoer) {
 // TODO: Add your if statement here!
 }
 
-
-
-
-
-
-
+func screenUnder21(person: Clubgoer) {
+// TODO: Add your if statement here!
+}
