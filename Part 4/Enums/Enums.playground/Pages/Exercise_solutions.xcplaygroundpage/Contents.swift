@@ -52,35 +52,3 @@ var currentWeather = Weather.Sun
 
 // Solution
 var reminder = "Don't forget your \(currentWeather.rawValue)!"
-//: __Problem 4: Revisiting value types and reference types.__
-//:
-//: At the end of the code snippet below, what is the value of macchiato.steamedMilk when EspressoDrink is implemented as a struct? What about when EspressoDrink is implemented as a class?
-enum Amount {
-    case None
-    case Splash
-    case Some
-    case Alot
-}
-
-struct EspressoDrink {
-    let numberOfShots: Int
-    var steamedMilk: Amount
-    let foam: Bool
-    
-    init(numberOfShots: Int, steamedMilk: Amount, foam: Bool) {
-        self.numberOfShots = numberOfShots
-        self.steamedMilk = steamedMilk
-        self.foam = foam
-    }
-}
-
-var macchiato = EspressoDrink(numberOfShots: 2, steamedMilk: .None, foam: true)
-var espressoForGabrielle = macchiato
-espressoForGabrielle.steamedMilk = .Splash
-macchiato.steamedMilk
-
-// Solution
-// if EspressoDrink is a struct, macchiato.steamedMilk = .None
-// if EspressoDrink is a class, macchiato.steamedMilk = .Splash
-
-

@@ -5,19 +5,19 @@
 //: ### Beaker Struct
 struct Beaker {
     
-    let volumeMillileters: Double
+    let volumeMilliliters: Double
     
     // The contents are pairs of (description, millileters). This is made private so that only the Beaker can modify the contents directly.
     private var contents: [String:Double] = [:]
     
-    init(volumeMillileters: Double) {
-        self.volumeMillileters = volumeMillileters
+    init(volumeMilliliters: Double) {
+        self.volumeMilliliters = volumeMilliliters
     }
     
     // These are US ounces
     var volumeOunces: Double {
         get {
-            return volumeMillileters * 0.033814
+            return volumeMilliliters * 0.033814
         }
     }
     
@@ -25,13 +25,13 @@ struct Beaker {
         return contents.values.reduce(0, combine: +)
     }
     
-    var availableMillileters: Double {
-        return volumeMillileters - contentsVolume
+    var availableMilliliters: Double {
+        return volumeMilliliters - contentsVolume
     }
     
     // Adds contents to the beaker without overflowing the beaker's volume.
     mutating func addContents(name: String, amount: Double) {
-        let amountWithoutOverflowing = min(availableMillileters, amount)
+        let amountWithoutOverflowing = min(availableMilliliters, amount)
         if let existingAmount = contents[name] {
             contents[name] = existingAmount + amountWithoutOverflowing
         } else {
@@ -49,7 +49,7 @@ struct Beaker {
     }
 }
 
-var b = Beaker(volumeMillileters: 100)
+var b = Beaker(volumeMilliliters: 100)
 b.addContents("baking soda", amount: 40)
 b.addContents("vinegar", amount: 140)
 b.listContents()

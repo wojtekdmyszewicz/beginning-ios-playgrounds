@@ -45,31 +45,4 @@ var currentWeather = Weather.Wind
 // TODO: Replace "jacket" with string interpolation of a raw value
 var reminder = "Don't forget your jacket!"
 
-//: __Problem 4: Revisiting value types and reference types.__
-//:
-//: At the end of the code snippet below, what is the value of macchiato.steamedMilk when EspressoDrink is implemented as a struct? What about when EspressoDrink is implemented as a class?
-enum Amount {
-    case None
-    case Splash
-    case Some
-    case Alot
-}
-
-struct EspressoDrink {
-    let numberOfShots: Int
-    var steamedMilk: Amount
-    let foam: Bool
-    
-    init(numberOfShots: Int, steamedMilk: Amount, foam: Bool) {
-        self.numberOfShots = numberOfShots
-        self.steamedMilk = steamedMilk
-        self.foam = foam
-    }
-}
-
-var macchiato = EspressoDrink(numberOfShots: 2, steamedMilk: .None, foam: true)
-var espressoForMe = macchiato
-espressoForMe.steamedMilk = .Splash
-macchiato.steamedMilk
-
 //: [Next](@next)
