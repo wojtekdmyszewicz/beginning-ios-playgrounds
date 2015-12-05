@@ -62,12 +62,31 @@ if let intValue = zee {
 var imageView = UIImageView()
 
 imageView.image = UIImage(named:"puppy_in_box")
+
+
+
 if let image = imageView.image {
     let size = image.size
 } else {
     print("This image hasn't been set.")
 }
+
 imageView.image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //: ### Optional Chaining
 // Example 1
@@ -90,13 +109,29 @@ imageView.image
 
 var animal = Animal(name: "Lenny", species: "lemur", tailLength: 12)
 
-animal = Animal(name: "Gilbert", species: "Gorilla", tailLength: nil )
+//animal = Animal(name: "Gilbert", species: "Gorilla", tailLength: nil )
 
 if let tailLength = animal.tail?.length {
-    print("\(animal.name)'s tail is \(tailLength) long")
+    print("\(animal.name)'s tail is \(tailLength) cm long")
 } else {
     print("\(animal.name) doesn't have a tail.")
 }
+
+var stringToReverse = "love"
+stringToReverse.characters.count
+
+var backwards = stringToReverse.characters.reverse()
+var stringToPrint = String(backwards)
+print(stringToPrint)
+
+var forwardString = "spoons"
+
+
+var charactersReversed = forwardString.characters.reverse()
+
+
+var backwardsString = String(charactersReversed)
+
 
 //: ### Implicitly Unwrapped Optionals
 // Example 1

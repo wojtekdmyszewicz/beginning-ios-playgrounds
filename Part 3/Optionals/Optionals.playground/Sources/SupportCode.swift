@@ -7,7 +7,7 @@ public struct Tail {
     public var length: String
     
     public init(length:Int) {
-        self.length = "\(length) cm"
+        self.length = "\(length)"
     }
 }
 
