@@ -1,6 +1,6 @@
-//: ## If-Else Statements
+//: [Previous](@previous)
 
-import UIKit
+//: ## If-Else Statements
 
 //:    if <condition> {
 //:        <code to execute>
@@ -31,3 +31,5 @@ if breakfast {
 //:    } else {
 //:        <code to execute>
 //:    }
+
+//: [Next](@next)
