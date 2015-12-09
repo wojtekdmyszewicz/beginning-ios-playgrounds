@@ -23,6 +23,6 @@ enum DrinkSize: Int {
 }
 
 // Here's how rawValues are accessed:
-var message = "I hope the A's stay in \(AmericanLeague_West.As.rawValue)"
+var message = "I hope the A's stay in \(AmericanLeagueWest.As.rawValue)"
 var sugar = "A \(DrinkSize.Small.rawValue) oz Coke has 33 g of sugar."
 //: [Next](@next)

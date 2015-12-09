@@ -2,9 +2,11 @@
 
 //: ## Enum initialization
 
-// As you saw in the previous example,
-
-
+// As you saw in the previous example, enums may be initialized by assigning a specific member of the enum to a variable or constant.
+enum CaliforniaPark {
+    case Yosemite, DeathValley, Lasson, Sequoia
+}
+var destination = CaliforniaPark.Yosemite
 
 // Enum types may also be initialized with rawValues.
 enum MazeDirection: Int {
