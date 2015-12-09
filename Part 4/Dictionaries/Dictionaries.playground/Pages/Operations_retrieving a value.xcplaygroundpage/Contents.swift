@@ -1,7 +1,9 @@
 //: [Previous](@previous)
+
+//: ## Dictionary Operations
+//: ### Retrieving the value for a particular key
 var animalGroupsDict = ["whales":"pod", "geese":"flock", "lions": "pride", "monkeys":"barrel"]
 
-//Retrieving the value for a particular key
 let groupOfWhales = animalGroupsDict["whales"]
 //: Why would the code below return an optional?
 //:

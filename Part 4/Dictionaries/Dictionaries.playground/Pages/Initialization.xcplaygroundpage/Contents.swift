@@ -1,4 +1,4 @@
-//: ### Dictionary initialization
+//: ### Dictionary Initialization
 
 // Initializer syntax
 var groupsDict = [String:String]()
