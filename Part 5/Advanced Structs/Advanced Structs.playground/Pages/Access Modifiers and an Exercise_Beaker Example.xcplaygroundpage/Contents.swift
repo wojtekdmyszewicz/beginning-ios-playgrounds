@@ -44,7 +44,7 @@ struct Beaker {
     }
     
     // TODO: re-implement this, keeping in mind contents
-    func canCountainContents(otherBeaker:Beaker) -> Bool {
+    func canContainContents(otherBeaker:Beaker) -> Bool {
         return false
     }
 }

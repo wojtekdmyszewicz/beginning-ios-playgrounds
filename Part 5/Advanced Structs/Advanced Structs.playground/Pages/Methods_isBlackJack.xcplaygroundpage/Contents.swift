@@ -1,5 +1,9 @@
+//: [Previous](@previous)
+
+import Foundation
+
 /*:
-## Computer Property, Method, and Custom Initializer
+## Methods
 */
 //: ### SuitedCard Struct
 struct SuitedCard {
@@ -29,23 +33,8 @@ struct SuitedCard {
     
     let suit: Suit
     let value: Value
-    let isFaceDown:Bool
     
-    // custom initializer taking a two parameters: a Suit and a Value
-    init(suit: Suit, value: Value) {
-        self.suit = suit
-        self.value = value
-        self.isFaceDown = false
-    }
-    
-    // custom initializer taking a three parameters: a Suit, a Value, and a Bool
-    init(suit: Suit, value: Value, isFaceDown: Bool) {
-        self.suit = suit
-        self.value = value
-        self.isFaceDown = isFaceDown
-    }
-    
-    // the suitDisplay is a value that can be derived from information already in the struct (the suit)
+    // The suitDisplay is a value that can be derived from information already in the struct (the suit)
     var suitDisplay: String {
         switch self.suit {
         case .Hearts:
@@ -79,20 +68,13 @@ struct SuitedCard {
     }
 }
 
-//: Example use of `SuitedCard`'s computer property `suitDisplay`.
+//: Example use of `SuitedCard`'s computed property `suitDisplay`.
 let s = SuitedCard(suit: .Hearts, value: .Ace)
 s.suitDisplay
 
 //: Example use of `SuitedCard`'s `isBlackjack` method.
 let t = SuitedCard(suit: .Spades, value: .Ten)
-let u = SuitedCard(suit: .Spades, value: .Ten, isFaceDown:true)
+let u = SuitedCard(suit: .Spades, value: .Ten)
 s.isBlackjack(t)
-
-//: Example use of `SuitedCard`'s custom initializers.
-let ten = SuitedCard(suit: .Spades, value: .Ten)
-ten.isFaceDown
-
-let upsideDown = SuitedCard(suit: .Spades, value: .Ten, isFaceDown: true)
-upsideDown.isFaceDown
 
 //: [Next](@next)
