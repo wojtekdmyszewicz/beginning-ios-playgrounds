@@ -12,24 +12,30 @@ For each of the following names and types, create a variables or constant that b
 - studentNickname (String)
 */
 
+let boilingPointOfWaterInCelsius = 100.00
+var gallonsRemainingInTank =  3.785411784
+let naturalLogarithmicBase = 2.718281828459
+let ageOfSpecimenInWeeks = 2
+var studentNickname = "alibaba"
+
 //: ### Exercise 2
 //: Fix the following compiler errors related to assignment, variables, and constants:
-var favoriteLanguage: Character = "Swift"
-gallonsRemainingInTank = "2"
-ageOfSpecimenInWeeks = 32.45
-let _numberOfGasIcons: Int = gallonsRemainingInTank
+var favoriteLanguage: String = "Swift"
+var gallonsRemainingInTanks = "2"
+var agesOfSpecimenInWeeks = 32.45
+let _numberOfGasIcons: String = gallonsRemainingInTanks
 let numberOfPolygonsInModel = 30
-numberOfPolygonsInModel = 32
-let polygonsLeftToDraw = 0
+var numberOfPolygonsInModels = 32
+var polygonsLeftToDraw = 0
 polygonsLeftToDraw = numberOfPolygonsInModel
 
 //: ### Exercise 3
 //: Fix the following compiler errors related to invalid names:
-var n@meOfSchool = "Udacity"
-var class = "Math"
-let import = "Nissian"
-var 🐩myDog! = "🐶"
-var 🐕yourDog? = "🐶"
+var nameOfSchool = "Udacity"
+var classType = "Math"
+let importType = "Nissian"
+var 🐩myDog = "🐶"
+var 🐕yourDog = "🐶"
 
 
 
