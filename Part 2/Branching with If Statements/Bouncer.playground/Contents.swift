@@ -26,9 +26,27 @@ func deny(person: Clubgoer) {
 }
 
 func screen(person: Clubgoer) {
-// TODO: Add your if statement here!
+    if person.onGuestList {
+        admit(person)
+    }
+    
+    if !person.onGuestList {
+        deny(person)
+    }
 }
 
 func screenUnder21(person: Clubgoer) {
-// TODO: Add your if statement here!
+    if person.onGuestList && person.age >= 21 {
+        admit(person)
+    }else {
+        deny(person)
+    }
 }
+
+screen(ayush)
+screen(gabrielle)
+screen(chris)
+
+screenUnder21(ayush)
+screenUnder21(gabrielle)
+screenUnder21(chris)
