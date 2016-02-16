@@ -39,14 +39,11 @@ func checkGameForRelease(game: Game) {
         switch(valid) {
             case game.bugs >= 10:
                 message = "Game contains to much bugs"
-                print(message)
                 break
             case !game.hasMusic :
                 message = "Game has no music"
-                print(message)
             case game.levels < 5:
                 message = "Game has not enough levels"
-                print(message)
             default: break
         }
         
