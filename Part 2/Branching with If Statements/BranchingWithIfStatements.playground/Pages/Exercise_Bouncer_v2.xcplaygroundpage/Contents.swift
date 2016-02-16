@@ -56,8 +56,18 @@ func screenUnder21(person: Clubgoer) {
 
 func screenVIP(person: Clubgoer) {
     // TODO: Add your if, else-if statement here!
+    
+    if person.onGuestList && person.age >= 21 {
+        admit(person)
+    } else if person.knowsTheOwner {
+        sendToOwner(person)
+    } else {
+        deny(person)
+    }
 }
 
 screenVIP(ayush)
+screen(chris)
+screen(jarrod)
 
 //: [Next](@next)
