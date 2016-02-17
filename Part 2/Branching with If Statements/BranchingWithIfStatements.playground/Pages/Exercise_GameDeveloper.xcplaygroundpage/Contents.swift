@@ -29,22 +29,23 @@ func checkGameForRelease(game: Game) {
     // TODO: Add your if statements here!
     
     let validForRelease = game.bugs < 10 && game.hasMusic && game.levels >= 5
+    var message = ""
     
     if !validForRelease {
         print("Not ready for release!")
         
-        let valid = validForRelease
-        var message = ""
-        
-        switch(valid) {
+        switch(validForRelease) {
             case game.bugs >= 10:
                 message = "Game contains to much bugs"
                 break
             case !game.hasMusic :
                 message = "Game has no music"
+                break
             case game.levels < 5:
                 message = "Game has not enough levels"
-            default: break
+                break
+            default:
+                break
         }
         
         print(message)

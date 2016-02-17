@@ -26,7 +26,32 @@ var athlete2 = Trainee(name: "Teresa", canFinishSwim: true, canFinishBike: true,
 
 func checkTrainingStatus (triathleteInTraining: Trainee) {
     //TODO: Add your if, else-if statement here!
+    
+    let personIsReady = triathleteInTraining.canFinishSwim && triathleteInTraining.canFinishBike && triathleteInTraining.canFinishRun
+    var message = ""
+    
+    if(!personIsReady) {
+        
+        switch(personIsReady) {
+        case !triathleteInTraining.canFinishSwim:
+            message = "You need to focus on swimming"
+            break
+        case !triathleteInTraining.canFinishBike:
+            message = "You need to focus on biking"
+            break
+        case !triathleteInTraining.canFinishRun:
+            message = "You need to focus on running"
+            break
+        default: break
+        }
+
+    }else {
+        message = "Person is ready"
+    }
+    
+    print(message)
 }
 
 checkTrainingStatus(athlete1)
+checkTrainingStatus(athlete2)
 
